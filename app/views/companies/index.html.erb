@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2 >
+            Companies
+            <div class="pull-right">
+                <%= link_to 'companies/new' do %>
+                    <div class="btn btn-sm btn-success">
+                        <i class="glyphicon glyphicon-plus"></i> Add New Company
+                    </div>
+                <% end %>
+            </div>
+        </h2>
+
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr> 
+                <th class="col-md-3">Company</th> 
+                <th class="col-md-8">Zones</th>
+                <th class="col-md-1">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Virebi's Company</td>
+                    <td>Room1, Room2, Room3</td>
+                    <td>
+                        <%= link_to '#' do %>
+                            <div class="btn btn-xs btn-primary">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </div>
+                        <% end %>
+
+                        <%= link_to '#' do %>
+                            <div class="btn btn-xs btn-danger">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </div>
+                        <% end %>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        <div>
+
+    </div>
+</div>

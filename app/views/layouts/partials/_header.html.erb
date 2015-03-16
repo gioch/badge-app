@@ -1,0 +1,55 @@
+<!--  User welcome & Language Bar START-->
+
+<br>
+<div class="row">
+    <div class="col-md-5 pull-right">
+        <div class="row">
+            <div class="col-md-8">
+                Welcome <b>George Chkhvirkia</b> (<%= link_to 'Log Out', '#' %>)
+            </div>
+            <div class="col-md-2">
+                <%= link_to 'English', '#' %>
+            </div>
+            <div class="col-md-2">
+                <%= link_to 'French', '#' %>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<!--  User welcome & Language Bar END-->
+
+<!--  Navbar START -->
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Badges</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li> <%= link_to '#' do %> Dashboards <% end %> </li>
+                <li> <%= link_to '#' do %> Orders <% end %> </li>
+                <li> <%= link_to '/zones' do %> Zones <% end %> </li>
+                <li class="active">
+                    <%= link_to '/companies' do %>
+                        Companies <span class="sr-only">(current)</span>
+                    <% end %>
+                </li>
+                <li> <%= link_to '/users' do %> Users <% end %> </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!--  Navbar END -->
