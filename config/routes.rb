@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources 'zones'
   end
 
-  get '/dashboard', to: 'dashboard#index'
+  get '/dashboard', to: 'dashboard#index', as: 'dashboard'
 
   root 'zones#index'
 

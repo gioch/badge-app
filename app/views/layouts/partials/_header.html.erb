@@ -38,15 +38,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li> <%= link_to '#' do %> Dashboards <% end %> </li>
+                <li> <%= link_to dashboard_path do %> Dashboards <% end %> </li>
                 <li> <%= link_to '#' do %> Orders <% end %> </li>
-                <li> <%= link_to '/zones' do %> Zones <% end %> </li>
+                <li> <%= link_to zones_path do %> Zones <% end %> </li>
                 <li class="active">
-                    <%= link_to '/companies' do %>
+                    <%= link_to companies_path do %>
                         Companies <span class="sr-only">(current)</span>
                     <% end %>
                 </li>
-                <li> <%= link_to '/users' do %> Users <% end %> </li>
+                <li> <%= link_to users_path do %> Users <% end %> </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
