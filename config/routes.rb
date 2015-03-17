@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-   
-  devise_for :users
-  resources 'companies'
-  resources 'users'
-  resources 'zones'
 
-  root 'zones#index'
+  devise_for :users
+
+  scope 'admin' do
+    resources 'companies'
+    resources 'users'
+    resources 'zones'
+  end
 
   get '/dashboard', to: 'dashboard#index'
+
+  root 'zones#index'
 
 end
