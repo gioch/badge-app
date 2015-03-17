@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
     def full_name
         self.name + ' ' + self.second_name
     end
+
+    def admin?
+        self.admin
+    end
 end
