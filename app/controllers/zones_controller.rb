@@ -34,6 +34,13 @@ class ZonesController < ApplicationController
         end
     end
 
+    def destroy
+        @zone = find_zone
+        if @zone.destroy
+            redirect_to zones_path
+        end
+    end
+
     private
         def find_zone
             Zone.find(params[:id])
