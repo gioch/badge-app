@@ -11,40 +11,48 @@
             </div>
         </h2>
 
-        <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr> 
-                <th class="col-md-4">Email</th> 
-                <th class="col-md-3">First Name</th>
-                <th class="col-md-3">Second Name</th>
-                <th class="col-md-1">Admin</th>
-                <th class="col-md-1">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>test@mail.com</td>
-                    <td>George</td>
-                    <td>Chkhvirkia</td>
-                    <td><span class="badge badge-success"><i class="glyphicon glyphicon-check"></i></span></td>
-                    <td>
-                        <%= link_to '#' do %>
-                            <div class="btn btn-xs btn-primary">
-                                <i class="glyphicon glyphicon-pencil"></i>
-                            </div>
-                        <% end %>
+        <% if @users.count > 0 %>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr> 
+                    <th class="col-md-4">Email</th> 
+                    <th class="col-md-3">Name</th>
+                    <th class="col-md-1">Admin</th>
+                    <th class="col-md-1">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% @users.each do |user| %>
+                        <tr>
+                            <td><%= user.email %></td>
+                            <td><%= user.full_name %></td>
+                            <td>
+                                <% if user.admin? %>
+                                    <span class="badge badge-success"><i class="glyphicon glyphicon-check"></i></span>
+                                <% end %>
+                            </td>
+                            <td>
+                                <%= link_to '#' do %>
+                                    <div class="btn btn-xs btn-primary">
+                                        <i class="glyphicon glyphicon-pencil"></i>
+                                    </div>
+                                <% end %>
 
-                        <%= link_to '#' do %>
-                            <div class="btn btn-xs btn-danger">
-                                <i class="glyphicon glyphicon-trash"></i>
-                            </div>
-                        <% end %>
-                    </td>
-                </tr>
-            </tbody>
-          </table>
-        <div>
+                                <%= link_to '#' do %>
+                                    <div class="btn btn-xs btn-danger">
+                                        <i class="glyphicon glyphicon-trash"></i>
+                                    </div>
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+              </table>
+            <div>
+        <% else %>
+            No Users Created
+        <% end %>
 
     </div>
 </div>

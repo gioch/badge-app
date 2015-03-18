@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     before_filter :admin_authorized?
     
     def index
+        @users = User.all
     end
 
     def new
