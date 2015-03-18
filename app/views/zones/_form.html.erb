@@ -1,19 +1,30 @@
+<%= form_for @zone do |f| %>
 
-<div class="row">
-    <div class="col-md-6">
-        <label for="name">Zone Name</label>
-        <input type="text" id="name" class="form-control" placeholder="Room 1">
+    <% if @zone.errors.any? %>
+        <p><%= pluralize(@zone.errors.count, 'Error') %></p>
+        <% @zone.errors.full_messages.each do |error| %>
+            <p><%= error %></p>
+        <% end %>
+    <% end %>
+
+    <div class="row">
+        <div class="col-md-6">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="col-md-6">
+            <%= f.label :color %>
+            <%= f.text_field :color, class: 'form-control', placeholder: '#cccccc' %>
+        </div>
     </div>
-    <div class="col-md-6">
-        <label for="color">Color</label>
-        <input type="text" name="color" class="form-control" placeholder="#cccccc">
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <%= f.label :all_access %>
+            <%= f.check_box :all_access %>
+        </div>
     </div>
-</div>
+    <br>
+    <%= f.submit class: 'btn btn-success', value: 'Save Zone'  %>
 
-<br>
-<div class="form-group">
-    <label for="all_access">All Access</label>
-    <input type="checkbox" name="all_access">
-</div>
-
-<input type="submit"  class="btn btn-success" value="Save zone">
+<%end%>
