@@ -27,13 +27,13 @@
                             <td><%= company.name %></td>
                             <td><%= company.zone_listing %></td>
                             <td>
-                                <%= link_to '#' do %>
+                                <%= link_to edit_company_path(company) do %>
                                     <div class="btn btn-xs btn-primary">
                                         <i class="glyphicon glyphicon-pencil"></i>
                                     </div>
                                 <% end %>
 
-                                <%= link_to '#' do %>
+                                <%= link_to company_path(company), method: :delete do %>
                                     <div class="btn btn-xs btn-danger">
                                         <i class="glyphicon glyphicon-trash"></i>
                                     </div>
