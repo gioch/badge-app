@@ -3,9 +3,7 @@ class Company < ActiveRecord::Base
     validates :name, presence: :true
 
     def zone_listing
-        listing = ''
-        self.zones.each do |zone|
-            listing += zone.name + ','
-        end
+        zone_listing = self.zones.map { |z| z.name }.join ','
+        zone_listing
     end
 end
