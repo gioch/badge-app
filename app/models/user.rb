@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
     validates :second_name, presence: true
 
     def full_name
-        self.name + ' ' + self.second_name
+        [self.name, self.second_name].join(' ')
     end
 
     def admin?
