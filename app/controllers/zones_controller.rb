@@ -20,6 +20,9 @@ class ZonesController < ApplicationController
         end
     end
 
+    def edit
+    end
+
     private
         def zone_params
             params.require(:zone).permit(:name, :color, :all_access)
