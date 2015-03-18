@@ -1,5 +1,17 @@
 <%= form_for @user do |f| %>
 
+    <% if @user.errors.any? %>
+
+        <p><%= pluralize(@user.errors.count, 'Error') %></p>
+
+        <% @user.errors.full_messages.each do |error| %>
+        
+            <p><%= error %></p>
+            
+        <% end %>
+
+    <% end %>
+
     <div class="row">
         <div class="col-md-12">
             <%= f.label :email %>
