@@ -1,13 +1,27 @@
-<label for="name">Company Name</label>
-<input type="text" id="name" class="form-control" placeholder="Apple corp.">
-<br>
+<%= form_for @company do |f| %>
 
-<label for="zones">Zones</label>
+    <% if @company.errors.any? %>
+        <p><%= pluralize(@company.errors.count, 'Error') %></p>
+        <% @company.errors.full_messages.each do |error| %>
+            <p><%= error %></p>
+        <% end %>
+    <% end %>
+
+    <div class="row">
+        <div class="col-md-12">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+        </div>
+    </div>
+    <br>
+    <%= f.submit class: 'btn btn-success', value: 'Save Company'  %>
+
+<%end%>
+
+<!-- <label for="zones">Zones</label>
 <br>
 <input type="checkbox" id="name"> Room1<br>
 <input type="checkbox" id="name"> Room2<br>
 <input type="checkbox" id="name"> Room3<br>
+ -->
 
-<br>
-
-<input type="submit"  class="btn btn-success" value="Save company">
