@@ -1,0 +1,31 @@
+<%= form_for @user do |f| %>
+
+    <% if @user.errors.any? %>
+
+        <p><%= pluralize(@user.errors.count, 'Error') %></p>
+
+        <% @user.errors.full_messages.each do |error| %>
+        
+            <p><%= error %></p>
+            
+        <% end %>
+
+    <% end %>
+
+    <div class="row">
+        <div class="col-md-6">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="col-md-6">
+            <%= f.label :second_name %>
+            <%= f.text_field :second_name, class: 'form-control' %>
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+        <%= f.label :admin %>
+        <%= f.check_box :admin %>
+    </div>
+    <%= f.submit class: 'btn btn-success', value: 'Save User' %>
+<% end %>

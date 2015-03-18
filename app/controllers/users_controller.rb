@@ -20,8 +20,38 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+        @user = find_user
+    end
+
+    def update
+        @user = find_user
+
+        if @user.update(user_update_params)
+            redirect_to users_path
+        else
+            render 'edit'
+        end
+    end
+
+    def destroy
+        @user = find_user
+        
+        if @user.destroy
+            redirect_to users_path
+        end
+    end
+
     private
+        def find_user
+            User.find(params[:id])
+        end
+
         def user_params
             params.require(:user).permit(:email, :password, :password_confirmation, :name, :second_name, :admin)
+        end
+
+        def user_update_params
+            params.require(:user).permit(:name, :second_name, :admin)
         end
 end
