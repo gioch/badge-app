@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  color: 
+  all_access: false
+
+two:
+  name: 
+  color: 
+  all_access: false
