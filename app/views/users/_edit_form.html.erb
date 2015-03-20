@@ -1,31 +1,50 @@
 <%= form_for @user do |f| %>
 
-    <% if @user.errors.any? %>
+<% if @user.errors.any? %>
 
-        <p><%= pluralize(@user.errors.count, 'Error') %></p>
+    <p><%= pluralize(@user.errors.count, 'Error') %></p>
 
-        <% @user.errors.full_messages.each do |error| %>
+    <% @user.errors.full_messages.each do |error| %>
+    
+        <p><%= error %></p>
         
-            <p><%= error %></p>
-            
-        <% end %>
-
     <% end %>
 
-    <div class="row">
-        <div class="col-md-6">
-            <%= f.label :name %>
-            <%= f.text_field :name, class: 'form-control' %>
+<% end %>
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-6">
+                <%= f.label :name %>
+                <%= f.text_field :name, class: 'form-control' %>
+            </div>
+            <div class="col-md-6">
+                <%= f.label :second_name %>
+                <%= f.text_field :second_name, class: 'form-control' %>
+            </div>
         </div>
-        <div class="col-md-6">
-            <%= f.label :second_name %>
-            <%= f.text_field :second_name, class: 'form-control' %>
+        <br>
+        <div class="form-group">
+            <%= f.label :admin %>
+            <%= f.check_box :admin %>
         </div>
     </div>
-    <br>
-    <div class="form-group">
-        <%= f.label :admin %>
-        <%= f.check_box :admin %>
+    <div class="col-md-3">
+        <div class="form-group">
+            <%= f.label :companies %>
+            <br>
+            <%= collection_check_boxes(:user, :company_ids, Company.all, :id, :name) do |checkbox| %>
+                <%= checkbox.check_box %> <%= checkbox.label %></br>
+            <% end %>
+        </div>
     </div>
-    <%= f.submit class: 'btn btn-success', value: 'Save User' %>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-2">
+       <%= f.submit class: 'btn btn-success', value: 'Save User' %>
+    </div>
+</div>
+
 <% end %>
