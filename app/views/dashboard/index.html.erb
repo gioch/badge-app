@@ -1,3 +1,7 @@
 <h2>Dashboard</h2>
 <br>
-<p>Place for non-admin users</p>
+<p>Place where non-admin user is automaticly redirected.</p>
+
+<% if current_user.admin? %>
+    <p>You are admin so you can also see it</p>
+<% end %>
