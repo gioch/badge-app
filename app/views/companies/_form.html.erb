@@ -20,7 +20,7 @@
             <div class="col-md-12">
                 <%= f.label :zones %>
                 <br>
-                <%=  collection_check_boxes(:company, :zone_ids, Zone.all, :id, :name)  do |checkbox|%>
+                <%=  collection_check_boxes(:company, :zone_ids, @zones, :id, :name)  do |checkbox|%>
                    <%= checkbox.check_box %> <%= checkbox.label %><br>
                 <% end %>
             </div>

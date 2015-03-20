@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
     def new
         @user = User.new
+        @companies = Company.all
     end
 
     def create
@@ -22,6 +23,7 @@ class UsersController < ApplicationController
 
     def edit
         @user = find_user
+        @companies = Company.all
     end
 
     def update

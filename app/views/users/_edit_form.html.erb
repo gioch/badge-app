@@ -34,7 +34,7 @@
         <div class="form-group">
             <%= f.label :companies %>
             <br>
-            <%= collection_check_boxes(:user, :company_ids, Company.all, :id, :name) do |checkbox| %>
+            <%= collection_check_boxes(:user, :company_ids, @companies, :id, :name) do |checkbox| %>
                 <%= checkbox.check_box %> <%= checkbox.label %></br>
             <% end %>
         </div>
