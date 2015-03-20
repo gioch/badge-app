@@ -8,11 +8,12 @@ class CompaniesController < ApplicationController
 
     def new
         @company = Company.new
+        @zones = Zone.all
     end
 
     def create
         @company = Company.create(company_params)
-
+        
         if @company.save
             redirect_to companies_path
         else
@@ -22,6 +23,7 @@ class CompaniesController < ApplicationController
 
     def edit
         @company = find_company
+        @zones = Zone.all
     end
 
     def update
@@ -47,6 +49,6 @@ class CompaniesController < ApplicationController
         end
 
         def company_params
-            params.require(:company).permit(:name)
+            params.require(:company).permit(:name, zone_ids: [])
         end
 end

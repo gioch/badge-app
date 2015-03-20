@@ -13,15 +13,21 @@
             <%= f.text_field :name, class: 'form-control' %>
         </div>
     </div>
+
+    <% if @zones.count > 0 %>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <%= f.label :zones %>
+                <br>
+                <%=  collection_check_boxes(:company, :zone_ids, Zone.all, :id, :name)  do |checkbox|%>
+                   <%= checkbox.check_box %> <%= checkbox.label %><br>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+
     <br>
     <%= f.submit class: 'btn btn-success', value: 'Save Company'  %>
 
 <%end%>
-
-<!-- <label for="zones">Zones</label>
-<br>
-<input type="checkbox" id="name"> Room1<br>
-<input type="checkbox" id="name"> Room2<br>
-<input type="checkbox" id="name"> Room3<br>
- -->
-
